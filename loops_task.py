@@ -1,21 +1,14 @@
 import time
 
-# while
-licznik = 0
-czas1 = time.time()
-while True:
-    licznik += 1
-    if licznik >= 20:
-        break
+start_time = time.time()
+loops = 0
+while time.time() - start_time < 1:
+    loops += 1
+end_time = time.time()
 
-czas_while = time.time() - czas1
-
-# for
-czas1 = time.time()
-for x in range(20):
-    pass
-
-czas_for = time.time() - czas1
+loops_for = 0
+for _ in range(loops_for):
 
 
-print(f'Czas while = {czas_while}, Czas for = {czas_for}')
+for_time = time.time() - end_time
+print(for_time)
