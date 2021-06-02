@@ -1,0 +1,694 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://adventofcode.com/2020/day/14
+Subject: Day 14 - Advent of Code 2020
+Date: Fri, 28 May 2021 19:46:01 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL----"
+
+
+------MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL----
+Content-Type: text/html
+Content-ID: <frame-68613A775FD6510BB0CF4A7DFC7BEE7D@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://adventofcode.com/2020/day/14
+
+<!DOCTYPE html><html lang=3D"en-us" class=3D"js-focus-visible" data-js-focu=
+s-visible=3D""><head><meta http-equiv=3D"Content-Type" content=3D"text/html=
+; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:c=
+ss-b8c3be2f-bff5-4f29-9c96-821443c87fae@mhtml.blink" />
+
+<title>Day 14 - Advent of Code 2020</title>
+<!--[if lt IE 9]><script src=3D"/static/html5.js"></script><![endif]-->
+<link href=3D"https://fonts.googleapis.com/css?family=3DSource+Code+Pro:300=
+&amp;subset=3Dlatin,latin-ext" rel=3D"stylesheet" type=3D"text/css">
+<link rel=3D"stylesheet" type=3D"text/css" href=3D"https://adventofcode.com=
+/static/style.css?26">
+<link rel=3D"stylesheet alternate" type=3D"text/css" href=3D"https://advent=
+ofcode.com/static/highcontrast.css?0" title=3D"High Contrast">
+<link rel=3D"shortcut icon" href=3D"https://adventofcode.com/favicon.png">
+</head><!--
+
+
+
+
+Oh, hello!  Funny seeing you here.
+
+I appreciate your enthusiasm, but you aren't going to find much down here.
+There certainly aren't clues to any of the puzzles.  The best surprises don=
+'t
+even appear in the source until you unlock them for real.
+
+Please be careful with automated requests; I'm not a massive company, and I=
+ can
+only take so much traffic.  Please be considerate so that everyone gets to =
+play.
+
+If you're curious about how Advent of Code works, it's running on some cust=
+om
+Perl code. Other than a few integrations (auth, analytics, social media), I
+built the whole thing myself, including the design, animations, prose, and =
+all
+of the puzzles.
+
+The puzzles are most of the work; preparing a new calendar and a new set of
+puzzles each year takes all of my free time for 4-5 months. A lot of effort
+went into building this thing - I hope you're enjoying playing it as much a=
+s I
+enjoyed making it for you!
+
+If you'd like to hang out, I'm @ericwastl on Twitter.
+
+- Eric Wastl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+<body data-new-gr-c-s-check-loaded=3D"14.1012.0" data-gr-ext-installed=3D""=
+>
+<header><div><h1 class=3D"title-global"><a href=3D"https://adventofcode.com=
+/">Advent of Code</a></h1><nav><ul><li><a href=3D"https://adventofcode.com/=
+2020/about">[About]</a></li><li><a href=3D"https://adventofcode.com/2020/ev=
+ents">[Events]</a></li><li><a href=3D"https://teespring.com/stores/advent-o=
+f-code" target=3D"_blank">[Shop]</a></li><li><a href=3D"https://adventofcod=
+e.com/2020/settings">[Settings]</a></li><li><a href=3D"https://adventofcode=
+.com/2020/auth/logout">[Log Out]</a></li></ul></nav><div class=3D"user">Daw=
+id Pacia <span class=3D"star-count">47*</span></div></div><div><h1 class=3D=
+"title-event">&nbsp;&nbsp;&nbsp;<span class=3D"title-event-wrap">0x0000|</s=
+pan><a href=3D"https://adventofcode.com/2020">2020</a><span class=3D"title-=
+event-wrap"></span></h1><nav><ul><li><a href=3D"https://adventofcode.com/20=
+20">[Calendar]</a></li><li><a href=3D"https://adventofcode.com/2020/support=
+">[AoC++]</a></li><li><a href=3D"https://adventofcode.com/2020/sponsors">[S=
+ponsors]</a></li><li><a href=3D"https://adventofcode.com/2020/leaderboard">=
+[Leaderboard]</a></li><li><a href=3D"https://adventofcode.com/2020/stats">[=
+Stats]</a></li></ul></nav></div></header>
+
+<div id=3D"sidebar">
+<div id=3D"sponsor"><div class=3D"quiet">Our <a href=3D"https://adventofcod=
+e.com/2020/sponsors">sponsors</a> help make Advent of Code possible:</div><=
+div class=3D"sponsor"><a href=3D"https://www.jagex.com/en-GB/careers" targe=
+t=3D"_blank" rel=3D"noopener">Jagex</a> - Work with developers of record-br=
+eaking MMO RuneScape!</div></div>
+</div><!--/sidebar-->
+
+<main>
+
+<article class=3D"day-desc"><h2>--- Day 14: Docking Data ---</h2><p>As your=
+ ferry approaches the sea port, the captain asks for your help again. The c=
+omputer system that runs this port isn't compatible with the docking progra=
+m on the ferry, so the docking parameters aren't being correctly initialize=
+d in the docking program's memory.</p>
+<p>After a brief inspection, you discover that the sea port's computer syst=
+em uses a strange <a href=3D"https://en.wikipedia.org/wiki/Mask_(computing)=
+" target=3D"_blank">bitmask</a> system in its initialization program. Altho=
+ugh you don't have the correct decoder chip handy, you can emulate it in so=
+ftware!</p>
+<p>The initialization program (your puzzle input) can either update the bit=
+mask or write a value to memory.  Values and memory addresses are both 36-b=
+it unsigned integers.  For example, ignoring bitmasks for a moment, a line =
+like <code>mem[8] =3D 11</code> would write the value <code>11</code> to me=
+mory address <code>8</code>.</p>
+<p>The bitmask is always given as a string of 36 bits, written with the mos=
+t significant bit (representing <code>2^35</code>) on the left and the leas=
+t significant bit (<code>2^0</code>, that is, the <code>1</code>s bit) on t=
+he right. The current bitmask is applied to values immediately before they =
+are written to memory: a <code>0</code> or <code>1</code> overwrites the co=
+rresponding bit in the value, while an <code>X</code> leaves the bit in the=
+ value unchanged.</p>
+<p>For example, consider the following program:</p>
+<pre><code>mask =3D XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+mem[8] =3D 11
+mem[7] =3D 101
+mem[8] =3D 0
+</code></pre>
+<p>This program starts by specifying a bitmask (<code>mask =3D ....</code>)=
+. The mask it specifies will overwrite two bits in every written value: the=
+ <code>2</code>s bit is overwritten with <code>0</code>, and the <code>64</=
+code>s bit is overwritten with <code>1</code>.</p>
+<p>The program then attempts to write the value <code>11</code> to memory a=
+ddress <code>8</code>. By expanding everything out to individual bits, the =
+mask is applied as follows:</p>
+<pre><code>value:  000000000000000000000000000000001011  (decimal 11)
+mask:   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+result: 00000000000000000000000000000<em>1</em>0010<em>0</em>1  (decimal 73=
+)
+</code></pre>
+<p>So, because of the mask, the value <code>73</code> is written to memory =
+address <code>8</code> instead. Then, the program tries to write <code>101<=
+/code> to address <code>7</code>:</p>
+<pre><code>value:  000000000000000000000000000001100101  (decimal 101)
+mask:   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+result: 00000000000000000000000000000<em>1</em>1001<em>0</em>1  (decimal 10=
+1)
+</code></pre>
+<p>This time, the mask has no effect, as the bits it overwrote were already=
+ the values the mask tried to set. Finally, the program tries to write <cod=
+e>0</code> to address <code>8</code>:</p>
+<pre><code>value:  000000000000000000000000000000000000  (decimal 0)
+mask:   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+result: 00000000000000000000000000000<em>1</em>0000<em>0</em>0  (decimal 64=
+)
+</code></pre>
+<p><code>64</code> is written to address <code>8</code> instead, overwritin=
+g the value that was there previously.</p>
+<p>To initialize your ferry's docking program, you need the sum of all valu=
+es left in memory after the initialization program completes. (The entire 3=
+6-bit address space begins initialized to the value <code>0</code> at every=
+ address.) In the above example, only two values in memory are not zero - <=
+code>101</code> (at address <code>7</code>) and <code>64</code> (at address=
+ <code>8</code>) - producing a sum of <em><code>165</code></em>.</p>
+<p>Execute the initialization program. <em>What is the sum of all values le=
+ft in memory after it completes?</em> (Do not truncate the sum to 36 bits.)=
+</p>
+</article>
+<p>Your puzzle answer was <code>6559449933360</code>.</p><article class=3D"=
+day-desc"><h2 id=3D"part2">--- Part Two ---</h2><p>For some reason, the sea=
+ port's computer system still can't communicate with your ferry's docking p=
+rogram. It must be using <em>version 2</em> of the decoder chip!</p>
+<p>A version 2 decoder chip doesn't modify the values being written at all.=
+  Instead, it acts as a <a href=3D"https://www.youtube.com/watch?v=3DPvfhAN=
+gLrm4" target=3D"_blank">memory address decoder</a>. Immediately before a v=
+alue is written to memory, each bit in the bitmask modifies the correspondi=
+ng bit of the destination <em>memory address</em> in the following way:</p>
+<ul>
+<li>If the bitmask bit is <code>0</code>, the corresponding memory address =
+bit is <em>unchanged</em>.</li>
+<li>If the bitmask bit is <code>1</code>, the corresponding memory address =
+bit is <em>overwritten with <code>1</code></em>.</li>
+<li>If the bitmask bit is <code>X</code>, the corresponding memory address =
+bit is <span title=3D"Technically, since you're on a boat, they're all floa=
+ting."><em>floating</em></span>.</li>
+</ul>
+<p>A <em>floating</em> bit is not connected to anything and instead fluctua=
+tes unpredictably. In practice, this means the floating bits will take on <=
+em>all possible values</em>, potentially causing many memory addresses to b=
+e written all at once!</p>
+<p>For example, consider the following program:</p>
+<pre><code>mask =3D 000000000000000000000000000000X1001X
+mem[42] =3D 100
+mask =3D 00000000000000000000000000000000X0XX
+mem[26] =3D 1
+</code></pre>
+<p>When this program goes to write to memory address <code>42</code>, it fi=
+rst applies the bitmask:</p>
+<pre><code>address: 000000000000000000000000000000101010  (decimal 42)
+mask:    000000000000000000000000000000X1001X
+result:  000000000000000000000000000000<em>X1</em>10<em>1X</em>
+</code></pre>
+<p>After applying the mask, four bits are overwritten, three of which are d=
+ifferent, and two of which are <em>floating</em>. Floating bits take on eve=
+ry possible combination of values; with two floating bits, four actual memo=
+ry addresses are written:</p>
+<pre><code>000000000000000000000000000000<em>0</em>1101<em>0</em>  (decimal=
+ 26)
+000000000000000000000000000000<em>0</em>1101<em>1</em>  (decimal 27)
+000000000000000000000000000000<em>1</em>1101<em>0</em>  (decimal 58)
+000000000000000000000000000000<em>1</em>1101<em>1</em>  (decimal 59)
+</code></pre>
+<p>Next, the program is about to write to memory address <code>26</code> wi=
+th a different bitmask:</p>
+<pre><code>address: 000000000000000000000000000000011010  (decimal 26)
+mask:    00000000000000000000000000000000X0XX
+result:  00000000000000000000000000000001<em>X</em>0<em>XX</em>
+</code></pre>
+<p>This results in an address with three floating bits, causing writes to <=
+em>eight</em> memory addresses:</p>
+<pre><code>00000000000000000000000000000001<em>0</em>0<em>00</em>  (decimal=
+ 16)
+00000000000000000000000000000001<em>0</em>0<em>01</em>  (decimal 17)
+00000000000000000000000000000001<em>0</em>0<em>10</em>  (decimal 18)
+00000000000000000000000000000001<em>0</em>0<em>11</em>  (decimal 19)
+00000000000000000000000000000001<em>1</em>0<em>00</em>  (decimal 24)
+00000000000000000000000000000001<em>1</em>0<em>01</em>  (decimal 25)
+00000000000000000000000000000001<em>1</em>0<em>10</em>  (decimal 26)
+00000000000000000000000000000001<em>1</em>0<em>11</em>  (decimal 27)
+</code></pre>
+<p>The entire 36-bit address space still begins initialized to the value 0 =
+at every address, and you still need the sum of all values left in memory a=
+t the end of the program.  In this example, the sum is <em><code>208</code>=
+</em>.</p>
+<p>Execute the initialization program using an emulator for a version 2 dec=
+oder chip. <em>What is the sum of all values left in memory after it comple=
+tes?</em></p>
+</article>
+<p>Your puzzle answer was <code>3369767240513</code>.</p><p class=3D"day-su=
+ccess">Both parts of this puzzle are complete! They provide two gold stars:=
+ **</p>
+<p>At this point, you should <a href=3D"https://adventofcode.com/2020">retu=
+rn to your Advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href=3D"https://adventofcode.com=
+/2020/day/14/input" target=3D"_blank">get your puzzle input</a>.</p>
+<p>You can also <span class=3D"share">[Share<span class=3D"share-content">o=
+n
+  <a href=3D"https://twitter.com/intent/tweet?text=3DI%27ve+completed+%22Do=
+cking+Data%22+%2D+Day+14+%2D+Advent+of+Code+2020&amp;url=3Dhttps%3A%2F%2Fad=
+ventofcode%2Ecom%2F2020%2Fday%2F14&amp;related=3Dericwastl&amp;hashtags=3DA=
+dventOfCode" target=3D"_blank">Twitter</a>
+  <a target=3D"_blank">Mastodon</a></span>]</span> this puzzle.</p>
+</main>
+
+<!-- ga -->
+
+<!-- /ga -->
+
+</body><loom-container id=3D"lo-engage-ext-container"><div></div><loom-shad=
+ow classname=3D"resolved"><template shadowmode=3D"open"><span><loom-shadow-=
+inner id=3D"lo-engage-ext-container"><loom-container></loom-container></loo=
+m-shadow-inner></span></template></loom-shadow></loom-container></html>
+------MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-b8c3be2f-bff5-4f29-9c96-821443c87fae@mhtml.blink
+
+@charset "utf-8";
+
+@font-face { font-weight: 400; font-style: normal; font-family: Circular-Lo=
+om; src: url("https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book=
+-cd7d2bcec649b1243839a15d5eb8f0a3.woff2") format("woff2"); }
+
+@font-face { font-weight: 500; font-style: normal; font-family: Circular-Lo=
+om; src: url("https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medi=
+um-d74eac43c78bd5852478998ce63dceb3.woff2") format("woff2"); }
+
+@font-face { font-weight: 700; font-style: normal; font-family: Circular-Lo=
+om; src: url("https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold=
+-83b8ceaf77f49c7cffa44107561909e4.woff2") format("woff2"); }
+
+@font-face { font-weight: 900; font-style: normal; font-family: Circular-Lo=
+om; src: url("https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Blac=
+k-bf067ecb8aa777ceb6df7d72226febca.woff2") format("woff2"); }
+------MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext
+
+@charset "utf-8";
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 300; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILx=
+Rpg3hIP6sJ7fM7PqtlsnDvucq_mk.woff2") format("woff2"); unicode-range: U+460-=
+52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 300; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILx=
+Rpg3hIP6sJ7fM7PqtlsnDt-cq_mk.woff2") format("woff2"); unicode-range: U+400-=
+45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 300; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILx=
+Rpg3hIP6sJ7fM7PqtlsnDsOcq_mk.woff2") format("woff2"); unicode-range: U+370-=
+3FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 300; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILx=
+Rpg3hIP6sJ7fM7PqtlsnDvOcq_mk.woff2") format("woff2"); unicode-range: U+102-=
+103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+=
+20AB; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 300; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILx=
+Rpg3hIP6sJ7fM7PqtlsnDvecq_mk.woff2") format("woff2"); unicode-range: U+100-=
+24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2=
+C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 300; src: url("https://fonts.gstatic.com/s/sourcecodepro/v14/HI_XiYsKILx=
+Rpg3hIP6sJ7fM7PqtlsnDs-cq.woff2") format("woff2"); unicode-range: U+0-FF, U=
++131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20A=
+C, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://adventofcode.com/static/style.css?26
+
+@charset "utf-8";
+
+body { background: rgb(15, 15, 35); color: rgb(204, 204, 204); font-family:=
+ "Source Code Pro", monospace; font-size: 14pt; min-width: 60em; }
+
+img { border: 0px; }
+
+a { outline: 0px; }
+
+main, figure, figcaption { display: block; }
+
+pre, code { font-family: "Source Code Pro", monospace; }
+
+header, main { text-size-adjust: none; }
+
+a { text-decoration: none; color: rgb(0, 153, 0); }
+
+a:hover, a:focus { color: rgb(153, 255, 153); }
+
+h1, h2 { font-size: 1em; font-weight: normal; }
+
+code { position: relative; display: inline-block; margin: 0px; padding: 0px=
+; }
+
+code::before { z-index: -1; content: ""; position: absolute; display: block=
+; inset: 3px -2px 0px; border: 1px solid rgb(51, 51, 64); background: rgb(1=
+6, 16, 26); }
+
+pre.wrap { max-width: 100%; white-space: pre-wrap; }
+
+.quiet { opacity: 0.5; }
+
+p.wrap { width: 45em; }
+
+.hidden-layout { padding: 0px 0.5em; border: 1px solid transparent; }
+
+.hidden { border: 1px dotted gray; overflow: hidden; position: relative; pa=
+dding: 0px 0.5em; }
+
+.hidden::before { content: "(hover to view)"; position: absolute; opacity: =
+0.5; text-align: center; left: 0px; top: 0px; width: 100%; }
+
+.hidden > * { visibility: hidden; }
+
+.hidden:hover { border-color: transparent; }
+
+.hidden:hover::before { display: none; }
+
+.hidden:hover > * { visibility: visible; }
+
+.warning:not(.warning-active) { transition: color 1s ease 0s, opacity 1s ea=
+se 0s; }
+
+.warning-active { color: rgb(255, 0, 0); opacity: 1; }
+
+.star-count { color: rgb(255, 255, 102); }
+
+.supporter-badge { color: rgb(255, 255, 102); }
+
+a.supporter-badge:hover, a.supporter-badge:focus { text-decoration: none; c=
+olor: rgb(255, 255, 204); text-shadow: rgb(255, 255, 102) 0px 0px 5px; }
+
+.sponsor-badge { color: rgb(121, 162, 216); }
+
+a.sponsor-badge:hover, a.sponsor-badge:focus { text-decoration: none; color=
+: rgb(204, 219, 237); text-shadow: rgb(121, 162, 216) 0px 0px 5px; }
+
+#sidebar { width: 200px; float: right; margin: 0px 15px 2em 2em; position: =
+relative; z-index: 10; }
+
+#sponsor { margin-bottom: 2.5em; }
+
+header { white-space: nowrap; cursor: default; z-index: 100; margin-bottom:=
+ 2em; }
+
+header h1 { display: inline-block; margin: 0px; padding-right: 1em; }
+
+header h1 a, header h1 span { display: inline-block; text-decoration: none;=
+ color: rgb(0, 204, 0); text-shadow: rgb(0, 204, 0) 0px 0px 2px, rgb(0, 204=
+, 0) 0px 0px 5px; }
+
+header h1 a:hover, header h1 a:focus { color: rgb(153, 255, 153); text-shad=
+ow: rgb(153, 255, 153) 0px 0px 2px, rgb(153, 255, 153) 0px 0px 5px; }
+
+header h1.title-event .title-event-wrap { opacity: 0.33; white-space: pre; =
+}
+
+header .user { display: inline-block; padding-left: 1em; }
+
+header nav { display: inline-block; }
+
+header nav ul { list-style-type: none; padding: 0px; margin: 0px; display: =
+inline-block; }
+
+header nav li { display: inline-block; padding: 0px 0.6em; }
+
+header nav a { display: inline-block; text-decoration: none; outline: none;=
+ }
+
+input[type=3D"text"], textarea { color: inherit; border: 1px solid rgb(102,=
+ 102, 102); background: rgb(16, 16, 26); padding: 0px 2px; font-family: inh=
+erit; font-size: inherit; margin: 0px; }
+
+textarea { vertical-align: top; }
+
+label img { vertical-align: bottom; position: relative; top: -3px; margin-r=
+ight: 0.3em; }
+
+input[type=3D"radio"] { display: none; }
+
+input[type=3D"radio"] ~ span { cursor: pointer; display: inline-block; }
+
+input[type=3D"radio"] ~ span::before { content: "( ) "; }
+
+input[type=3D"radio"] ~ span:hover, input[type=3D"radio"] ~ span:focus { ba=
+ckground-color: rgb(25, 25, 59); }
+
+input[type=3D"radio"]:checked ~ span { color: rgb(255, 255, 255); }
+
+input[type=3D"radio"]:checked ~ span::before { content: "(O) "; }
+
+input[type=3D"checkbox"] { display: none; }
+
+input[type=3D"checkbox"] ~ span { cursor: pointer; display: inline-block; }
+
+input[type=3D"checkbox"] ~ span::before { content: "[ ] "; }
+
+input[type=3D"checkbox"] ~ span:hover, input[type=3D"checkbox"] ~ span:focu=
+s { background-color: rgb(25, 25, 59); }
+
+input[type=3D"checkbox"]:checked ~ span { color: rgb(255, 255, 255); }
+
+input[type=3D"checkbox"]:checked ~ span::before { content: "[X] "; }
+
+input[type=3D"checkbox"]:disabled ~ span { opacity: 0.3; cursor: default; }
+
+input[type=3D"checkbox"]:disabled ~ span::before { content: "[-] "; }
+
+input[type=3D"checkbox"]:disabled ~ span:hover { background-color: transpar=
+ent; }
+
+input[type=3D"submit"] { background: transparent; border: 0px; font-family:=
+ inherit; font-size: inherit; margin: 0px; padding: 0px; color: rgb(0, 153,=
+ 0); cursor: pointer; }
+
+input[type=3D"submit"]:hover, input[type=3D"submit"]:focus { color: rgb(153=
+, 255, 153); }
+
+article { width: 45em; margin-bottom: 2em; margin-top: 2em; }
+
+article:first-child { margin-top: 0px; }
+
+article h2 { color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em=
+; white-space: nowrap; }
+
+article h2 + * { margin-top: 0px; }
+
+article em { color: rgb(255, 255, 255); font-style: normal; text-shadow: rg=
+b(255, 255, 255) 0px 0px 5px; }
+
+article em.star { color: rgb(255, 255, 102); font-style: normal; text-shado=
+w: rgb(255, 255, 102) 0px 0px 5px; }
+
+article a { white-space: nowrap; }
+
+article .aside { opacity: 0.6; }
+
+article ul { list-style-type: none; padding: 0px; }
+
+article li { padding-left: 2.5em; position: relative; }
+
+article li::before { content: "=C2=A0=C2=A0-=C2=A0"; position: absolute; le=
+ft: 0px; top: 0px; }
+
+.day-success { color: rgb(255, 255, 102); text-shadow: rgb(255, 255, 102) 0=
+px 0px 5px; }
+
+form#settings input[type=3D"radio"] ~ span { min-width: 30em; }
+
+form#settings input[type=3D"checkbox"] ~ span { min-width: 30em; }
+
+.share { color: rgb(0, 153, 0); cursor: default; transition: color 0.2s eas=
+e 1s; }
+
+.share:hover, .share:focus-within { color: rgb(170, 255, 170); transition: =
+color 0.2s ease 0s; }
+
+.share .share-content { display: inline-block; vertical-align: text-bottom;=
+ white-space: nowrap; overflow: hidden; max-width: 0px; transition: max-wid=
+th 0.2s ease 1s; }
+
+.share .share-content::before { content: "=C2=A0"; }
+
+.share .share-content::after { }
+
+.share:hover .share-content, .share:focus-within .share-content { max-width=
+: 45em; transition: max-width 0.2s ease 0s; }
+
+.puzzle-input { border: 1px solid rgb(153, 153, 153); background: rgb(51, 5=
+1, 51); color: rgb(255, 255, 255); text-shadow: rgb(255, 255, 255) 0px 0px =
+5px; }
+
+.calendar { cursor: default; user-select: none; }
+
+.calendar > span { color: rgb(51, 51, 51); }
+
+.calendar > a { text-decoration: none; color: rgb(102, 102, 102); outline: =
+none; cursor: default; }
+
+.calendar a:hover, .calendar a:focus { background-color: rgba(119, 119, 165=
+, 0.2); cursor: pointer; }
+
+#calendar-countdown { padding-left: 0.5em; color: rgb(204, 204, 204); }
+
+.calendar .calendar-day { color: rgb(102, 102, 102); }
+
+.calendar a .calendar-day { color: rgb(204, 204, 204); }
+
+.calendar a .calendar-mark-complete, .calendar a .calendar-mark-verycomplet=
+e { visibility: hidden; }
+
+.calendar a.calendar-complete .calendar-mark-complete, .calendar a.calendar=
+-verycomplete .calendar-mark-complete { visibility: visible; color: rgb(255=
+, 255, 102); }
+
+.calendar a.calendar-verycomplete .calendar-mark-verycomplete { visibility:=
+ visible; color: rgb(255, 255, 102); }
+
+.calendar .calendar-day-new { animation: 5s ease 0s 1 normal none running a=
+nim-day-new; }
+
+.calendar .calendar-day-new .calendar-day { animation: 5s ease 0s 1 normal =
+none running anim-day-new-day; }
+
+@keyframes anim-day-new {=20
+  0% { color: rgb(51, 51, 51); text-shadow: transparent 0px 0px 5px; }
+  25% { color: rgb(255, 255, 255); text-shadow: rgb(255, 255, 255) 0px 0px =
+5px; }
+  100% { color: rgb(102, 102, 102); text-shadow: transparent 0px 0px 5px; }
+}
+
+@keyframes anim-day-new-day {=20
+  0% { color: rgb(102, 102, 102); text-shadow: transparent 0px 0px 5px; }
+  25% { color: rgb(255, 255, 255); text-shadow: rgb(255, 255, 255) 0px 0px =
+5px; }
+  100% { color: rgb(204, 204, 204); text-shadow: transparent 0px 0px 5px; }
+}
+
+.eventlist-event { white-space: pre; }
+
+.stats > span, .stats > span .stats-firstonly, .stats > span .stats-both { =
+color: rgb(102, 102, 102); }
+
+.stats > a { color: rgb(204, 204, 204); min-width: 35em; display: inline-bl=
+ock; }
+
+.stats > a:hover, .stats > a:focus { background-color: rgb(30, 30, 70); }
+
+.stats-firstonly { color: rgb(153, 153, 204); }
+
+.stats-both { color: rgb(255, 255, 102); }
+
+.leaderboard-daylinks { cursor: default; }
+
+.leaderboard-daylinks-selected { color: rgb(255, 255, 255); text-shadow: rg=
+b(255, 255, 255) 0px 0px 5px; }
+
+.leaderboard-daydesc-first { color: rgb(153, 153, 204); }
+
+.leaderboard-daydesc-both { color: rgb(255, 255, 102); }
+
+.leaderboard-entry { white-space: pre; }
+
+.leaderboard-entry .leaderboard-totalscore { color: rgb(255, 255, 255); }
+
+.leaderboard-anon { opacity: 0.6; }
+
+.leaderboard-userphoto { display: inline-block; height: 20px; width: 20px; =
+margin: 0px 0.5em; text-align: center; }
+
+.leaderboard-userphoto img { height: 20px; max-width: 20px; vertical-align:=
+ middle; position: relative; top: -2px; }
+
+.leaderboard-time { opacity: 0.5; }
+
+.privboard-row { white-space: pre; }
+
+.privboard-name { vertical-align: text-bottom; }
+
+.privboard-days > span { display: inline-block; color: rgb(51, 51, 51); }
+
+.privboard-days > a { display: inline-block; }
+
+.privboard-star-locked { visibility: hidden; }
+
+.privboard-star-unlocked { color: rgb(51, 51, 51); }
+
+.privboard-star-firstonly { color: rgb(153, 153, 204); }
+
+.privboard-star-both { color: rgb(255, 255, 102); }
+
+.privboard-delbtn { opacity: 0.33; }
+
+.privboard-row:hover .privboard-delbtn { opacity: 1; }
+
+.sponsors { width: 46em; }
+
+.sponsor { margin: 1em 0px; }
+------MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://adventofcode.com/static/highcontrast.css?0
+
+@charset "utf-8";
+
+* { background: white !important; color: black !important; text-shadow: non=
+e !important; }
+
+a { color: rgb(0, 0, 255) !important; text-decoration: underline !important=
+; }
+
+em { font-weight: 900 !important; }
+------MultipartBoundary--GzhFVxRMTaRZf5jAynTB9fUuHKAb9UqV9plEHPtAXL------
