@@ -3,9 +3,11 @@ import re
 
 file = open('input.txt', 'r').read()
 file = file.replace('\n', ',')
+
 ticket_details, rest = file.split(',your ticket:,')
 your_ticket, nearby_tickets = rest.split(',,nearby tickets:,')
 ticket_details = ticket_details.replace(',', ':,')
+
 ticket_details = ticket_details.split(',')
 your_ticket = your_ticket.split(',')
 nearby_tickets = nearby_tickets.split(',')

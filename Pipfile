@@ -8,6 +8,7 @@ autopep8 = "*"
 pep8 = "*"
 flake8 = "*"
 wemake-python-styleguide = "*"
+requests = "*"
 
 [dev-packages]
 
